@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Spend Predictor</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body style="background: #080;">
+ <div class="login">
+	<h1>Spend Prediction</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+    	<input type="text" name="Avg. Session Length(in mins)" placeholder="Avg. Session Length(in mins)" required="required" />
+        <input type="text" name="Time on App(in Mins)" placeholder="Time on App(in Mins)" required="required" />
+		<input type="text" name="Time on Website(in Mins)" placeholder="Time on Website(in Mins)" required="required" />
+        <input type="text" name="Length of Membership(in Years)" placeholder="Length of Membership(in Years)" required="required" />
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict How much you will spend</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+</body>
+</html>
